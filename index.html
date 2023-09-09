@@ -30,7 +30,8 @@
 
         document.getElementById("rec").addEventListener("click", () => {
             const bodyObj = {
-                visit: 1
+                visit: 1,
+                date: new Date()
             };
             sendRequest("POST", requestURL, bodyObj)
                 .then(response => console.log(response))
