@@ -4,7 +4,9 @@
     <title>TestSite</title>
 </head>
 <body>
-    <button id="rec">Send Request</button>
+    <button id="rec">Замість кнопки процес буде відбуватися щойно завантажується сторінка (OnDOMContentLoaded)</button>
+    <button id="businessCard">Створити візитку</button>
+    <button id="signature">Завантажити підпис</button>
     <script>
         const requestURL = "https://alexsmirnoff98.pythonanywhere.com/api/receive_xhr";
 
@@ -36,6 +38,24 @@
             sendRequest("POST", requestURL, bodyObj)
                 .then(response => console.log(response))
                 .catch(err => console.error(err));
+        });
+        document.getElementById("businessCard").addEventListener("click", () => {
+            const bodyObj = {
+                product: "card",
+                asset: "var asset"
+            };
+            sendRequest("POST", requestURL, bodyObj)
+                .then(response => console.log(response))
+                .catch(err => console.error(err))
+        });
+        document.getElementById("signature").addEventListener("click", () => {
+            const bodyObj = {
+                product: "signature",
+                asset: "var asset"
+            }
+            sendRequest("POST", requestURL, bodyObj)
+                .then(response => console.log(response))
+                .catch(err => console.error(err))
         });
     </script>
 </body>
